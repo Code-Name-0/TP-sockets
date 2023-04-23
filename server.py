@@ -52,8 +52,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM )	as sock:
 		with connection:
 			print(f"connection from :{address}")
 			while True:
-				data = connection.recv(1024)
-				data = data.decode('utf-8')
+				data = connection.recv(1024).decode('utf-8')
 				if (data in ['q', 'Q', "exit", "quit"]):
 					connection.sendall(b"closed")
 					connection.close()
